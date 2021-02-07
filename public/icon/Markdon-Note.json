@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "name": "Markdon-Note",
+    "lastOpened": 0,
+    "created": 1612687816334
+  },
+  "iconSets": [
+    {
+      "selection": [
+        {
+          "order": 6,
+          "id": 3,
+          "name": "arrow-down",
+          "prevSize": 32,
+          "code": 59650,
+          "tempChar": ""
+        },
+        {
+          "order": 7,
+          "id": 2,
+          "name": "arrow-up",
+          "prevSize": 32,
+          "code": 59651,
+          "tempChar": ""
+        },
+        {
+          "order": 5,
+          "id": 1,
+          "name": "start",
+          "prevSize": 32,
+          "code": 59648,
+          "tempChar": ""
+        },
+        {
+          "order": 3,
+          "id": 0,
+          "name": "description",
+          "prevSize": 32,
+          "code": 59649,
+          "tempChar": ""
+        }
+      ],
+      "id": 0,
+      "metadata": {
+        "name": "Untitled Set",
+        "importSize": {
+          "width": 24,
+          "height": 24
+        }
+      },
+      "height": 1024,
+      "prevSize": 32,
+      "icons": [
+        {
+          "id": 3,
+          "paths": [
+            "M0 307.2l512 512 512-512z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "arrow-down"
+          ]
+        },
+        {
+          "id": 2,
+          "paths": [
+            "M0 716.8l512-512 512 512z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "arrow-up"
+          ]
+        },
+        {
+          "id": 1,
+          "paths": [
+            "M512 781.824l316.416 190.977-83.968-359.937 279.552-242.176-368.128-31.232-143.872-339.457-143.872 339.457-368.128 31.232 279.552 242.176-83.968 359.937z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "start"
+          ]
+        },
+        {
+          "id": 0,
+          "paths": [
+            "M614.399-0h-409.6c-56.32 0-101.888 46.080-101.888 102.4l-0.512 819.201c0 56.32 45.568 102.4 101.888 102.4h614.913c56.32 0 102.4-46.080 102.4-102.4v-614.4l-307.2-307.2zM716.799 819.201h-409.6v-102.4h409.6v102.4zM716.799 614.401h-409.6v-102.4h409.6v102.4zM563.199 358.401v-281.601l281.601 281.601h-281.601z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "description"
+          ]
+        }
+      ],
+      "invisible": false,
+      "colorThemes": []
+    }
+  ],
+  "uid": -1,
+  "preferences": {
+    "showGlyphs": true,
+    "showCodes": true,
+    "showQuickUse": true,
+    "showQuickUse2": true,
+    "showSVGs": true,
+    "fontPref": {
+      "prefix": "icon-",
+      "metadata": {
+        "fontFamily": "icomoon"
+      },
+      "metrics": {
+        "emSize": 1024,
+        "baseline": 6.25,
+        "whitespace": 50
+      },
+      "embed": false
+    },
+    "imagePref": {
+      "prefix": "icon-",
+      "png": true,
+      "useClassSelector": true,
+      "color": 0,
+      "bgColor": 16777215,
+      "name": "icomoon",
+      "classSelector": ".icon"
+    },
+    "historySize": 50,
+    "gridSize": 16
+  }
+}

@@ -1,0 +1,28 @@
+#Category {
+    width: 20vw;
+    height: 100vh;
+
+    .List{
+        margin-bottom: 50px;
+    }
+
+    .title{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    ul{
+        margin: 19px 0;
+    }
+
+    li{
+        margin: 21px 0;
+        &:last-child{
+            margin: 0;
+        }
+    }
+
+    i{
+        margin-right: 8px;
+    }
+}

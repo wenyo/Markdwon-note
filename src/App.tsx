@@ -6,7 +6,7 @@ import Shortcut from './components/shortcut/Shortcut';
 
 function App() {
     return (
-        <div className="App">
+        <div id="Wrap" className="Black">
             <Category />
             <Directory />
             <Note />

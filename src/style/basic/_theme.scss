@@ -1,8 +1,24 @@
 .Black {
+    #theme {
+        div {
+            background-color: $color-b-primary-800;
+        }
+    }
+
     #Category {
         background-color: $color-b-primary-700;
         color: $color-b-primary-500;
 
-        
+        li.active {
+            background-color: $color-b-primary-800;
+
+            &:before {
+                background-color: $color-b-hilight-400;
+            }
+        }
+
+        & > div:last-child {
+            border-top: 0.75px solid $color-primary-300;
+        }
     }
 }

@@ -8,12 +8,28 @@
     {
       "selection": [
         {
+          "order": 9,
+          "id": 5,
+          "name": "remove",
+          "prevSize": 32,
+          "code": 59652,
+          "tempChar": ""
+        },
+        {
+          "order": 8,
+          "id": 4,
+          "name": "delete",
+          "prevSize": 32,
+          "code": 59653,
+          "tempChar": ""
+        },
+        {
           "order": 6,
           "id": 3,
           "name": "arrow-down",
           "prevSize": 32,
           "code": 59650,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 7,
@@ -21,7 +37,7 @@
           "name": "arrow-up",
           "prevSize": 32,
           "code": 59651,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 5,
@@ -29,7 +45,7 @@
           "name": "start",
           "prevSize": 32,
           "code": 59648,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 3,
@@ -37,7 +53,7 @@
           "name": "description",
           "prevSize": 32,
           "code": 59649,
-          "tempChar": ""
+          "tempChar": ""
         }
       ],
       "id": 0,
@@ -51,6 +67,36 @@
       "height": 1024,
       "prevSize": 32,
       "icons": [
+        {
+          "id": 5,
+          "paths": [
+            "M1024.001 585.143h-1024v-146.285h1024v146.285z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "remove"
+          ]
+        },
+        {
+          "id": 4,
+          "paths": [
+            "M170.667 910.223c0 62.577 51.2 113.777 113.777 113.777h455.111c62.577 0 113.777-51.2 113.777-113.777v-682.667h-682.667v682.667zM910.223 56.889h-199.111l-56.889-56.889h-284.444l-56.889 56.889h-199.111v113.777h796.444v-113.777z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "grid": 0,
+          "tags": [
+            "delete"
+          ]
+        },
         {
           "id": 3,
           "paths": [

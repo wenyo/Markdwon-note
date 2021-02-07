@@ -1,7 +1,18 @@
 import React from 'react';
+import Category from './components/category/Category';
+import Directory from './components/directory/Directory';
+import Note from './components/note/Note';
+import Shortcut from './components/shortcut/Shortcut';
 
 function App() {
-    return <div className="App">APP</div>;
+    return (
+        <div className="App">
+            <Category />
+            <Directory />
+            <Note />
+            <Shortcut />
+        </div>
+    );
 }
 
 export default App;

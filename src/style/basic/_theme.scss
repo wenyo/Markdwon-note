@@ -21,4 +21,12 @@
             border-top: 0.75px solid $color-primary-300;
         }
     }
+
+    #Directory {
+        border-right: 1px solid $color-b-primary-400;
+
+        #Tool {
+            border-bottom: 1px solid $color-b-primary-400;
+        }
+    }
 }

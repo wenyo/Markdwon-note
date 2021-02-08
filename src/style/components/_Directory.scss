@@ -1,0 +1,24 @@
+#Directory {
+    width: 25vw;
+    min-width: 400px;
+    height: 100vh;
+
+    #Tool {
+        display: flex;
+        justify-content: space-between;
+
+        i {
+            margin-right: 24px;
+            font-size: 18px;
+            cursor: pointer;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.unactive {
+                color: $color-b-primary-400;
+            }
+        }
+    }
+}

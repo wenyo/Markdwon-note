@@ -1,14 +1,14 @@
 import React from 'react';
 
 import Tool from './Tool';
-import Item from './Item';
+import Items from './Items';
 import Filter from './Filter';
 
 const Directory = () => {
     return (
         <div id="Directory">
             <Tool />
-            <Item />
+            <Items />
             <Filter />
         </div>
     );

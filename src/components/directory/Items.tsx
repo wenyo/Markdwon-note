@@ -14,10 +14,10 @@ const Items = () => {
     return (
         <div id="Items">
             {Object.keys(vData).map((id) => {
-                const iId = parseInt(id)
+                const iId = parseInt(id);
                 const title = vData[iId].name;
-                const content = "The note with a star would be organized to the category named “STARRED”."
-                return <Item title={title} content={content}/>;
+                const content = 'The note with a star would be organized to the category named “STARRED”.';
+                return <Item key={id} title={title} content={content} />;
             })}
         </div>
     );

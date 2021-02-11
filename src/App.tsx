@@ -17,7 +17,7 @@ function App() {
                 <Category />
                 <Directory />
                 <Note />
-                <Shortcut />
+                {/* <Shortcut /> */}
             </div>
         </Provider>
     );

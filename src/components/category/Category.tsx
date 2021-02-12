@@ -43,6 +43,7 @@ const Category = () => {
                 <div className="content scrollbarCol">
                     {vIcon.map((icon, idx) => (
                         <List
+                            key={idx}
                             sTitle={sActiveType[idx]}
                             Icon={icon}
                             vList={['AAAA', 'BBB', 'AAAA', 'BBB', 'AAAA', 'BBB', 'AAAA', 'BBB']}

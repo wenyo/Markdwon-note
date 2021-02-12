@@ -5,6 +5,7 @@ import NoteContext from '../../context/NoteContext';
 export interface vItemInput {
     title: string;
     content: string;
+    bStarred: boolean;
 }
 
 const Items = () => {
@@ -17,10 +18,11 @@ const Items = () => {
                 const className = iData === parseInt(id) ? 'active' : '';
                 const iId = parseInt(id);
                 const title = vData[iId].name;
+                const bStarred = vData[iId].starred;
                 const content = 'The note with a star would be organized to the category named “STARRED”.';
                 return (
                     <div key={id} className={`content ${className}`} onClick={() => setiData(parseInt(id))}>
-                        <Item title={title} content={content} />
+                        <Item title={title} content={content} bStarred={bStarred}/>
                     </div>
                 );
             })}

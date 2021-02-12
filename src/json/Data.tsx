@@ -17,7 +17,7 @@ export const vData: DataType = {
     0: {
         name: 'Untitle note',
         collection: 'Project',
-        starred: true,
+        starred: false,
         updated_date: '2021/02/07 13:45',
         created_date: '2021/02/01 11:00',
         content: 
@@ -45,7 +45,7 @@ export const vData: DataType = {
     3: {
         name: 'Untitle note',
         collection: 'Project',
-        starred: true,
+        starred: false,
         updated_date: '2021/02/03 13:45',
         created_date: '2021/02/03 11:00',
         content: `# Untitle note 
@@ -54,7 +54,7 @@ export const vData: DataType = {
     4: {
         name: 'Untitle note',
         collection: 'Project',
-        starred: true,
+        starred: false,
         updated_date: '2021/02/07 13:45',
         created_date: '2021/02/01 11:00',
         content: `# Untitle note 

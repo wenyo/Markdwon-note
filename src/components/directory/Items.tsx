@@ -9,15 +9,20 @@ export interface vItemInput {
 
 const Items = () => {
     //context
-    const { vData } = useContext(NoteContext);
+    const { vData, setiData, iData } = useContext(NoteContext);
 
     return (
-        <div id="Items">
+        <div id="Items" className="scrollbarCol">
             {Object.keys(vData).map((id) => {
+                const className = iData === parseInt(id) ? 'active' : '';
                 const iId = parseInt(id);
                 const title = vData[iId].name;
                 const content = 'The note with a star would be organized to the category named “STARRED”.';
-                return <Item key={id} title={title} content={content} />;
+                return (
+                    <div key={id} className={`content ${className}`} onClick={() => setiData(parseInt(id))}>
+                        <Item title={title} content={content} />
+                    </div>
+                );
             })}
         </div>
     );

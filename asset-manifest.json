@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Markdwon-note/static/css/main.2dc79f78.chunk.css",
+    "main.js": "/Markdwon-note/static/js/main.997110ae.chunk.js",
+    "main.js.map": "/Markdwon-note/static/js/main.997110ae.chunk.js.map",
+    "runtime-main.js": "/Markdwon-note/static/js/runtime-main.3be28abb.js",
+    "runtime-main.js.map": "/Markdwon-note/static/js/runtime-main.3be28abb.js.map",
+    "static/css/2.c4803e03.chunk.css": "/Markdwon-note/static/css/2.c4803e03.chunk.css",
+    "static/js/2.efa62ead.chunk.js": "/Markdwon-note/static/js/2.efa62ead.chunk.js",
+    "static/js/2.efa62ead.chunk.js.map": "/Markdwon-note/static/js/2.efa62ead.chunk.js.map",
+    "index.html": "/Markdwon-note/index.html",
+    "static/css/2.c4803e03.chunk.css.map": "/Markdwon-note/static/css/2.c4803e03.chunk.css.map",
+    "static/css/main.2dc79f78.chunk.css.map": "/Markdwon-note/static/css/main.2dc79f78.chunk.css.map",
+    "static/js/2.efa62ead.chunk.js.LICENSE.txt": "/Markdwon-note/static/js/2.efa62ead.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/Markdwon-note/static/media/Roboto-Regular.03523cf5.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3be28abb.js",
+    "static/css/2.c4803e03.chunk.css",
+    "static/js/2.efa62ead.chunk.js",
+    "static/css/main.2dc79f78.chunk.css",
+    "static/js/main.997110ae.chunk.js"
+  ]
+}

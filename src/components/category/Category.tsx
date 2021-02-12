@@ -20,6 +20,7 @@ export interface ListInput {
 const Category = () => {
     const [iActive, setiActive] = useState<number>(1);
     const [sType, setsType] = useState<string>(sActiveType[0]);
+    const [vCollection, setvCollection] = useState(['Home', 'Work', 'Project']);
 
     const chooseItem = (sType: string, idx: number) => {
         setsType(sType);
@@ -28,6 +29,7 @@ const Category = () => {
 
     const ContexntValue = {
         chooseItem,
+        vCollection,
     };
 
     return (
@@ -46,7 +48,7 @@ const Category = () => {
                             key={idx}
                             sTitle={sActiveType[idx]}
                             Icon={icon}
-                            vList={['AAAA', 'BBB', 'AAAA', 'BBB', 'AAAA', 'BBB', 'AAAA', 'BBB']}
+                            vList={sActiveType[1] === sActiveType[idx] ? vCollection : []}
                             iActive={sType === sActiveType[idx] ? iActive : -1}
                         />
                     ))}

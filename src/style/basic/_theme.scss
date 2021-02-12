@@ -28,5 +28,16 @@
         #Tool {
             border-bottom: 1px solid $color-b-primary-400;
         }
+
+        #Items {
+            &>div:hover,
+            &>div.active {
+                background-color: $color-b-primary-300;
+
+                &:before {
+                    background-color: $color-b-hilight-400;
+                }
+            }
+        }
     }
 }

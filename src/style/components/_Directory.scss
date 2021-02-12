@@ -25,6 +25,21 @@
         & > div {
             box-sizing: border-box;
             border-bottom: 1px solid $color-b-primary-400;
+            cursor: pointer;
+            &:hover,
+            &.active {
+                position: relative;
+
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    height: 100%;
+                    width: 4px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
         }
 
         h3 {

@@ -1,11 +1,12 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Tool = () => {
     return (
         <div id="Tool" className="content">
             <div>
-                <i className="icon-view-comfy"></i>
-                <i className="icon-view-stream unactive"></i>
+                <FontAwesomeIcon icon={faGithub} />
             </div>
             <div>
                 <i className="icon-delete"></i>

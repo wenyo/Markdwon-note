@@ -5,8 +5,10 @@
     #Tool {
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
-        i {
+        i,
+        svg {
             margin-right: 24px;
             font-size: 18px;
             cursor: pointer;
@@ -14,10 +16,10 @@
             &:last-child {
                 margin-right: 0;
             }
+        }
 
-            &.unactive {
-                color: $color-b-primary-400;
-            }
+        svg {
+            font-size: 21px;
         }
     }
 

@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { createPortal } from 'react-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleNotch, faCheck, faTimes, faExclamation } from '@fortawesome/free-solid-svg-icons';
 import BaseContext from '../../context/BaseContext';
 
 // iMsgType === 0 : Loading
@@ -19,18 +21,18 @@ function Message() {
                 {iMsgType !== 0 && (
                     <div className="title-block">
                         <div className="title">{sMsgTitle}</div>
-                        <i className="icon-add" onClick={()=>setbMsg(false)}></i>
+                        <i className="icon-add" onClick={() => setbMsg(false)}></i>
                     </div>
                 )}
                 <div className="content">
                     {iMsgType === 0 ? (
-                        iMsgType // <FontAwesomeIcon icon={faCircleNotch} spin />
+                        <FontAwesomeIcon icon={faCircleNotch} spin />
                     ) : iMsgType === 1 ? (
-                        iMsgType // <FontAwesomeIcon icon={faCheck} />
+                        <FontAwesomeIcon icon={faCheck} />
                     ) : iMsgType === 2 ? (
-                        iMsgType // <FontAwesomeIcon icon={faTimes} />
+                        <FontAwesomeIcon icon={faTimes} />
                     ) : iMsgType === 3 ? (
-                        iMsgType // <FontAwesomeIcon icon={faExclamation} />
+                        <FontAwesomeIcon icon={faExclamation} />
                     ) : (
                         <></>
                     )}

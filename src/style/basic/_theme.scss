@@ -1,7 +1,34 @@
 .Black {
+    .btn-outline {
+        border: 1px solid $color-b-primary-700;
+
+        &:hover {
+            background-color: $color-b-primary-300;
+        }
+    }
+
+    .input-text {
+        border-bottom: 1px solid $color-b-primary-700;
+    }
+
     #theme {
         div {
             background-color: $color-b-primary-800;
+        }
+    }
+    
+    &.gray-back {
+        .modal-content, .msg-content {
+            background-color: $color-primary-300;
+        }
+
+        .title-block{
+            background-color: $color-b-primary-700;
+
+        }
+
+        .content {
+            color: $color-b-primary-700;
         }
     }
 
@@ -30,13 +57,25 @@
         }
 
         #Items {
-            &>div:hover,
-            &>div.active {
+            & > div:hover,
+            & > div.active {
                 background-color: $color-b-primary-300;
 
                 &:before {
                     background-color: $color-b-hilight-400;
                 }
+            }
+
+            i {
+                color: $color-b-hilight-300;
+            }
+        }
+    }
+
+    #Note{
+        .editor-container{
+            &>section{
+                // border-right: 1px solid $color-b-primary-400;
             }
         }
     }

@@ -12,7 +12,7 @@ function Modal() {
     const { bModal, sModal, sModalTitle, setbModal } = useContext(BaseContext);
 
     const sEl = (
-        <div className="gray-back">
+        <div className="gray-back Black" >
             <div className="modal-content">
                 <div className="title-block">
                     <div className="title">{sModalTitle}</div>

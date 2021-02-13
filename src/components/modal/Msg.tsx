@@ -16,7 +16,7 @@ function Message() {
     };
 
     const sEl = (
-        <div className="gray-back" onClick={clickBGtoClose}>
+        <div className="gray-back Black" onClick={clickBGtoClose}>
             <div className="msg-content">
                 {iMsgType !== 0 && (
                     <div className="title-block">

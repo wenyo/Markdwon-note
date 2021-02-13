@@ -3,6 +3,7 @@ import { Provider } from '../../context/CategoryContext';
 import { vList } from '../../context/NoteContext';
 import List from './List';
 import NoteContext, { sActiveType } from '../../context/NoteContext';
+import BaseContext from '../../context/BaseContext';
 
 const vIcon = [<i className="icon-start"></i>, <i className="icon-description"></i>, <i className="icon-remove"></i>];
 
@@ -13,30 +14,54 @@ export interface ListInput {
     iActive: number;
 }
 
-const vDefault: vList[] = [
-    { name: 'Home', id: 0 },
-    { name: 'Work', id: 1 },
-    { name: 'Project', id: 2 },
-];
-
 const Category = () => {
     // context
-    const { vData, iActive, sType } = useContext(NoteContext);
+    const { setAlert, bModal } = useContext(BaseContext);
+    const { vData, iActive, sType, vCollection, setvCollection } = useContext(NoteContext);
 
     // state
-    const [vCollection, setvCollection] = useState<vList[]>(vDefault);
     const [vStarr, setvStarr] = useState<vList[]>([]);
     const [vTrash, setvTrash] = useState<vList[]>([]);
+    const [sNewCollection, setsNewCollection] = useState('');
 
     const ContexntValue = {
         vCollection,
     };
 
-    const addCollection = (sCollection: string) => {
-        if (sCollection === '') return;
+    const addCollection = () => {
+        if (sNewCollection === '') return;
         let vNewCollection = JSON.parse(JSON.stringify(vCollection));
         const iNewIdx = vNewCollection.length;
-        vNewCollection.push({ name: sCollection, id: iNewIdx });
+        vNewCollection.push({ name: sNewCollection, id: iNewIdx });
+        setvCollection(vNewCollection);
+        setAlert('Modal', false);
+    };
+
+    const textCollection = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setsNewCollection(event.target.value);
+    };
+
+    const renewAlert = () => {
+        setAlert(
+            'Modal',
+            true,
+            <>
+                <input
+                    className="input-text"
+                    type="text"
+                    value={sNewCollection}
+                    onChange={(event) => textCollection(event)}
+                />
+                <button className="btn-outline" onClick={addCollection}>
+                    SUBMIT
+                </button>
+            </>,
+            'New Collection'
+        );
+    };
+
+    const clickNewCollection = () => {
+        renewAlert();
     };
 
     useEffect(() => {
@@ -53,6 +78,12 @@ const Category = () => {
         setvTrash(vNewTrash);
         setvStarr(vNewStarr);
     }, []);
+
+    useEffect(() => {
+        if (bModal) {
+            renewAlert();
+        }
+    }, [sNewCollection]);
 
     return (
         <Provider value={ContexntValue}>
@@ -84,7 +115,7 @@ const Category = () => {
                     ))}
                 </div>
 
-                <div className="content">
+                <div className="content" onClick={clickNewCollection}>
                     <i className="icon-library-add"></i>
                     <span>New Collection</span>
                 </div>

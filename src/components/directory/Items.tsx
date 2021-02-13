@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Item from './Item';
-import NoteContext, { sActiveType, vDefault } from '../../context/NoteContext';
+import NoteContext, { sActiveType } from '../../context/NoteContext';
 
 export interface vItemInput {
     title: string;
@@ -10,7 +10,7 @@ export interface vItemInput {
 
 const Items = () => {
     //context
-    const { vData, setiData, iData, iActive, sType } = useContext(NoteContext);
+    const { vData, setiData, iData, iActive, sType, vCollection } = useContext(NoteContext);
 
     // state
     const [vShowData, setvShowData] = useState<number[]>([]);
@@ -21,7 +21,7 @@ const Items = () => {
                 vNewData = Object.keys(vData)
                     .filter((id) => {
                         return (
-                            !vData[parseInt(id)].trash && vData[parseInt(id)].collection === vDefault[iActive].name
+                            !vData[parseInt(id)].trash && vData[parseInt(id)].collection === vCollection[iActive].id
                         );
                     })
                     .map((id) => parseInt(id));

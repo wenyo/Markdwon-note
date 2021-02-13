@@ -49,3 +49,28 @@ body {
 .content {
     padding: 20px 24px;
 }
+
+button{
+    background-color: unset;
+    border: unset, unset inside;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn-outline{
+    padding: 5px 20px;
+    border: 1px solid $color-b-primary-700;
+
+    &:hover{
+        background-color:$color-b-primary-300;
+    }
+}
+
+.input-text{
+    border: none;
+    border-bottom: 1px solid $color-b-primary-700;
+
+    &:focus{
+        outline: none;
+    }
+}

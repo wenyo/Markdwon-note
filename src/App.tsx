@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Provider, sActiveType } from './context/NoteContext';
+import { Provider, sActiveType, vList, vDefault } from './context/NoteContext';
 import { Provider as BaseProvider } from './context/BaseContext';
 import { vData as vDataDefault } from './json/Data';
 import Category from './components/category/Category';
@@ -25,6 +25,7 @@ function App() {
     const [vData, setvData] = useState(vDataDefault);
     const [iActive, setiActive] = useState<number>(1); // category idx
     const [sType, setsType] = useState<string>(sActiveType[0]); // category type
+    const [vCollection, setvCollection] = useState<vList[]>(vDefault);
 
     const chooseItem = (sType: string, idx: number) => {
         setsType(sType);
@@ -74,6 +75,8 @@ function App() {
         iActive,
         sType,
         chooseItem,
+        vCollection,
+        setvCollection
     };
 
     return (

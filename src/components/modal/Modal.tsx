@@ -6,7 +6,7 @@ import BaseContext from '../../context/BaseContext';
 
 function Modal() {
     // modal element
-    const elModal = document.getElementById('modal2');
+    const elModal = document.getElementById('modal');
 
     // context
     const { bModal, sModal, sModalTitle, setbModal } = useContext(BaseContext);
@@ -16,7 +16,7 @@ function Modal() {
             <div className="modal-content">
                 <div className="title-block">
                     <div className="title">{sModalTitle}</div>
-                    {/* <FontAwesomeIcon icon={faTimesCircle} onClick={() => setbModal(false)} /> */}
+                    <i className="icon-add" onClick={()=>setbModal(false)}></i>
                 </div>
                 <div className="content">{sModal}</div>
             </div>

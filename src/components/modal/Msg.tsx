@@ -19,7 +19,7 @@ function Message() {
                 {iMsgType !== 0 && (
                     <div className="title-block">
                         <div className="title">{sMsgTitle}</div>
-                        {/* <FontAwesomeIcon icon={faTimesCircle} onClick={() => setbMsg(false)} /> */}
+                        <i className="icon-add" onClick={()=>setbMsg(false)}></i>
                     </div>
                 )}
                 <div className="content">

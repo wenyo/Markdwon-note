@@ -27,6 +27,8 @@ const NoteContext = createContext({
     iActive: -1,
     sType: sActiveType[0],
     chooseItem: (sType: string, idx: number) => {},
+    vCollection: vDefault,
+    setvCollection: (x: vList[]) => {},
 });
 
 export const { Provider, Consumer } = NoteContext;

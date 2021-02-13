@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Item from './Item';
-import NoteContext from '../../context/NoteContext';
+import NoteContext, { sActiveType, vDefault } from '../../context/NoteContext';
 
 export interface vItemInput {
     title: string;
@@ -10,19 +10,43 @@ export interface vItemInput {
 
 const Items = () => {
     //context
-    const { vData, setiData, iData } = useContext(NoteContext);
+    const { vData, setiData, iData, iActive, sType } = useContext(NoteContext);
+
+    // state
+    const [vShowData, setvShowData] = useState<number[]>([]);
+    useEffect(() => {
+        let vNewData: number[] = [];
+        switch (sType) {
+            case sActiveType[1]:
+                vNewData = Object.keys(vData)
+                    .filter((id) => {
+                        return (
+                            !vData[parseInt(id)].trash && vData[parseInt(id)].collection === vDefault[iActive].name
+                        );
+                    })
+                    .map((id) => parseInt(id));
+                break;
+            case sActiveType[0]:
+            case sActiveType[2]:
+                vNewData = [iActive];
+                break;
+            default:
+                break;
+        }
+
+        setvShowData(vNewData);
+    }, [sType, iActive]);
 
     return (
         <div id="Items" className="scrollbarCol">
-            {Object.keys(vData).map((id) => {
-                const className = iData === parseInt(id) ? 'active' : '';
-                const iId = parseInt(id);
-                const title = vData[iId].name;
-                const bStarred = vData[iId].starred;
+            {vShowData.map((id) => {
+                const className = iData === id ? 'active' : '';
+                const title = vData[id].name;
+                const bStarred = vData[id].starred;
                 const content = 'The note with a star would be organized to the category named “STARRED”.';
                 return (
-                    <div key={id} className={`content ${className}`} onClick={() => setiData(parseInt(id))}>
-                        <Item title={title} content={content} bStarred={bStarred}/>
+                    <div key={id} className={`content ${className}`} onClick={() => setiData(id)}>
+                        <Item title={title} content={content} bStarred={bStarred} />
                     </div>
                 );
             })}

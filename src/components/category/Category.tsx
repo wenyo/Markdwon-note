@@ -1,36 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Provider } from '../../context/CategoryContext';
+import { vList } from '../../context/NoteContext';
 import List from './List';
-
-enum sActiveType {
-    STARRED,
-    COLLECTIONS,
-    TRASH,
-    NONE,
-}
+import NoteContext, { sActiveType } from '../../context/NoteContext';
 
 const vIcon = [<i className="icon-start"></i>, <i className="icon-description"></i>, <i className="icon-remove"></i>];
+
 export interface ListInput {
     sTitle: string;
     Icon: JSX.Element;
-    vList: string[];
+    vList: vList[];
     iActive: number;
 }
 
-const Category = () => {
-    const [iActive, setiActive] = useState<number>(1);
-    const [sType, setsType] = useState<string>(sActiveType[0]);
-    const [vCollection, setvCollection] = useState(['Home', 'Work', 'Project']);
+const vDefault: vList[] = [
+    { name: 'Home', id: 0 },
+    { name: 'Work', id: 1 },
+    { name: 'Project', id: 2 },
+];
 
-    const chooseItem = (sType: string, idx: number) => {
-        setsType(sType);
-        setiActive(idx);
-    };
+const Category = () => {
+    // context
+    const { vData, iActive, sType } = useContext(NoteContext);
+
+    // state
+    const [vCollection, setvCollection] = useState<vList[]>(vDefault);
+    const [vStarr, setvStarr] = useState<vList[]>([]);
+    const [vTrash, setvTrash] = useState<vList[]>([]);
 
     const ContexntValue = {
-        chooseItem,
         vCollection,
     };
+
+    useEffect(() => {
+        let vNewStarr: vList[] = [];
+        let vNewTrash: vList[] = [];
+        for (const id in vData) {
+            const data = vData[id];
+            if (data.trash) {
+                vNewTrash.push({ name: data.name, id: parseInt(id) });
+            } else if (data.starred) {
+                vNewStarr.push({ name: data.name, id: parseInt(id) });
+            }
+        }
+        setvTrash(vNewTrash);
+        setvStarr(vNewStarr);
+    }, []);
 
     return (
         <Provider value={ContexntValue}>
@@ -48,7 +63,15 @@ const Category = () => {
                             key={idx}
                             sTitle={sActiveType[idx]}
                             Icon={icon}
-                            vList={sActiveType[1] === sActiveType[idx] ? vCollection : []}
+                            vList={
+                                sActiveType[0] === sActiveType[idx]
+                                    ? vStarr
+                                    : sActiveType[1] === sActiveType[idx]
+                                    ? vCollection
+                                    : sActiveType[2] === sActiveType[idx]
+                                    ? vTrash
+                                    : []
+                            }
                             iActive={sType === sActiveType[idx] ? iActive : -1}
                         />
                     ))}

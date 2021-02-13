@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import CategoryContext from '../../context/CategoryContext';
+import NoteContext from '../../context/NoteContext';
 
 import { ListInput } from './Category';
 
@@ -8,7 +8,7 @@ const List = (props: ListInput) => {
     const { sTitle, Icon, vList, iActive } = props;
 
     //context
-    const { chooseItem } = useContext(CategoryContext);
+    const { chooseItem } = useContext(NoteContext);
 
     //state
     const [bShow, setbShow] = useState<boolean>(true);
@@ -26,14 +26,14 @@ const List = (props: ListInput) => {
             <ul>
                 {vList.length > 0 &&
                     bShow &&
-                    vList.map((sList, idx) => (
+                    vList.map((vList, idx) => (
                         <li
                             key={idx}
-                            onClick={() => chooseItem(sTitle, idx)}
-                            className={idx === iActive ? 'active' : ''}
+                            onClick={() => chooseItem(sTitle, vList.id)}
+                            className={vList.id === iActive ? 'active' : ''}
                         >
                             {Icon}
-                            <span>{sList}</span>
+                            <span>{vList.name}</span>
                         </li>
                     ))}
             </ul>

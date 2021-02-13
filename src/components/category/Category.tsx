@@ -32,6 +32,13 @@ const Category = () => {
         vCollection,
     };
 
+    const addCollection = (sCollection: string) => {
+        if (sCollection === '') return;
+        let vNewCollection = JSON.parse(JSON.stringify(vCollection));
+        const iNewIdx = vNewCollection.length;
+        vNewCollection.push({ name: sCollection, id: iNewIdx });
+    };
+
     useEffect(() => {
         let vNewStarr: vList[] = [];
         let vNewTrash: vList[] = [];

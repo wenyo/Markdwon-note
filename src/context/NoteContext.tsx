@@ -3,7 +3,7 @@ import { DataType } from '../json/Data';
 
 export interface vList {
     name: string;
-    id: number;
+    id?: number;
 }
 
 export enum sActiveType {
@@ -19,6 +19,8 @@ export const vDefault: vList[] = [
     { name: 'Project', id: 2 },
 ];
 
+export const vCollectionData: vList[] = [{ name: 'Home' }, { name: 'Work' }, { name: 'Project' }];
+
 const NoteContext = createContext({
     vData: {} as DataType,
     setvData: (x: DataType) => {},
@@ -27,8 +29,14 @@ const NoteContext = createContext({
     iActive: -1,
     sType: sActiveType[0],
     chooseItem: (sType: string, idx: number) => {},
-    vCollection: vDefault,
-    setvCollection: (x: vList[]) => {},
+    vCollection: [] as string[],
+    setvCollection: (x: string[]) => {},
+    vStarr: [] as string[],
+    setvStarr: (x: string[]) => {},
+    vTrash: [] as string[],
+    setvTrash: (x: string[]) => {},
+    vCollectionData,
+    setvCollectionData: (x:vList[]) => {},
 });
 
 export const { Provider, Consumer } = NoteContext;

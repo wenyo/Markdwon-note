@@ -10,7 +10,7 @@ export interface vItemInput {
 
 const Items = () => {
     //context
-    const { vData, setiData, iData, iActive, sType, vCollection } = useContext(NoteContext);
+    const { vData, setiData, iData, iActive, sType } = useContext(NoteContext);
 
     // state
     const [vShowData, setvShowData] = useState<number[]>([]);
@@ -20,9 +20,7 @@ const Items = () => {
             case sActiveType[1]:
                 vNewData = Object.keys(vData)
                     .filter((id) => {
-                        return (
-                            !vData[parseInt(id)].trash && vData[parseInt(id)].collection === vCollection[iActive].id
-                        );
+                        return !vData[parseInt(id)].trash && vData[parseInt(id)].collection === iActive;
                     })
                     .map((id) => parseInt(id));
                 break;
@@ -34,7 +32,10 @@ const Items = () => {
                 break;
         }
 
+        const iNewData = vNewData.length === 0 ? -1 : vNewData[0];
+
         setvShowData(vNewData);
+        setiData(iNewData);
     }, [sType, iActive]);
 
     return (

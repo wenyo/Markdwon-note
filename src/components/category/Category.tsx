@@ -1,27 +1,35 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Provider } from '../../context/CategoryContext';
-import { vList } from '../../context/NoteContext';
+import { vCollectionData } from '../../context/NoteContext';
 import List from './List';
 import NoteContext, { sActiveType } from '../../context/NoteContext';
 import BaseContext from '../../context/BaseContext';
+
+interface vDataType {
+    [x: number]: {
+        name: string;
+        [x: number]: any;
+    };
+}
 
 const vIcon = [<i className="icon-start"></i>, <i className="icon-description"></i>, <i className="icon-remove"></i>];
 
 export interface ListInput {
     sTitle: string;
     Icon: JSX.Element;
-    vList: vList[];
+    vList: string[];
     iActive: number;
+    vData: vDataType;
 }
 
 const Category = () => {
     // context
     const { setAlert, bModal } = useContext(BaseContext);
-    const { vData, iActive, sType, vCollection, setvCollection } = useContext(NoteContext);
+    const { vData, iActive, sType, vCollection, setvCollection, vStarr, setvStarr, vTrash, setvTrash, setvCollectionData, vCollectionData } = useContext(
+        NoteContext
+    );
 
     // state
-    const [vStarr, setvStarr] = useState<vList[]>([]);
-    const [vTrash, setvTrash] = useState<vList[]>([]);
     const [sNewCollection, setsNewCollection] = useState('');
 
     const ContexntValue = {
@@ -30,10 +38,11 @@ const Category = () => {
 
     const addCollection = () => {
         if (sNewCollection === '') return;
-        let vNewCollection = JSON.parse(JSON.stringify(vCollection));
-        const iNewIdx = vNewCollection.length;
-        vNewCollection.push({ name: sNewCollection, id: iNewIdx });
-        setvCollection(vNewCollection);
+        let vNewCollectionData = JSON.parse(JSON.stringify(vCollectionData));
+        vNewCollectionData.push({ name: sNewCollection });
+        vCollection.push(vCollection.length.toString())
+        setvCollectionData(vNewCollectionData);
+        setvCollection(vCollection)
         setAlert('Modal', false);
     };
 
@@ -65,14 +74,14 @@ const Category = () => {
     };
 
     useEffect(() => {
-        let vNewStarr: vList[] = [];
-        let vNewTrash: vList[] = [];
+        let vNewStarr: string[] = [];
+        let vNewTrash: string[] = [];
         for (const id in vData) {
             const data = vData[id];
             if (data.trash) {
-                vNewTrash.push({ name: data.name, id: parseInt(id) });
+                vNewTrash.push(id);
             } else if (data.starred) {
-                vNewStarr.push({ name: data.name, id: parseInt(id) });
+                vNewStarr.push(id);
             }
         }
         setvTrash(vNewTrash);
@@ -108,6 +117,15 @@ const Category = () => {
                                     ? vCollection
                                     : sActiveType[2] === sActiveType[idx]
                                     ? vTrash
+                                    : []
+                            }
+                            vData={
+                                sActiveType[0] === sActiveType[idx]
+                                    ? vData
+                                    : sActiveType[1] === sActiveType[idx]
+                                    ? vCollectionData
+                                    : sActiveType[2] === sActiveType[idx]
+                                    ? vData
                                     : []
                             }
                             iActive={sType === sActiveType[idx] ? iActive : -1}

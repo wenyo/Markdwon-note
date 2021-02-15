@@ -5,8 +5,8 @@ import { ListInput } from './Category';
 
 const List = (props: ListInput) => {
     // props
-    const { sTitle, Icon, vList, iActive } = props;
-
+    const { sTitle, Icon, vList, iActive, vData } = props;
+    
     //context
     const { chooseItem } = useContext(NoteContext);
 
@@ -26,14 +26,14 @@ const List = (props: ListInput) => {
             <ul>
                 {vList.length > 0 &&
                     bShow &&
-                    vList.map((vList, idx) => (
+                    vList.map((id) => (
                         <li
-                            key={idx}
-                            onClick={() => chooseItem(sTitle, vList.id)}
-                            className={vList.id === iActive ? 'active' : ''}
+                            key={id}
+                            onClick={() => chooseItem(sTitle, parseInt(id))}
+                            className={parseInt(id) === iActive ? 'active' : ''}
                         >
                             {Icon}
-                            <span>{vList.name}</span>
+                            <span>{vData[parseInt(id)].name}{id}</span>
                         </li>
                     ))}
             </ul>

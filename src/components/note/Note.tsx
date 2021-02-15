@@ -24,26 +24,31 @@ const Note = () => {
     const { iData, vData, setvData } = useContext(NoteContext);
 
     //state
-    const [vAlue, setvAlue] = useState('# TiTle');
+    const [sValue, setsValue] = useState('');
 
     function handleEditorChange({ html, text }: Type) {
+        if (iData < 0) return;
         const vNewData = JSON.parse(JSON.stringify(vData));
         const title = html.split('<h1>')[1]?.split('</h1>')[0];
         vNewData[iData].name = title;
         vNewData[iData].content = text;
         vNewData[iData].updated_date = '2021/02/07 13:45';
         setvData(vNewData);
-        setvAlue(text);
+        setsValue(text);
     }
 
     useEffect(() => {
-        setvAlue(vData[iData].content);
+        if (iData > 0) {
+            setsValue(vData[iData].content);
+        } else {
+            setsValue('## Choese Note or Create Note first');
+        }
     }, [iData]);
 
     return (
         <MdEditor
             id="Note"
-            value={vAlue}
+            value={sValue}
             style={{ height: '100vh', width: 'calc( 100vw - 500px )' }}
             renderHTML={(text) => mdParser.render(`${text}`)}
             onChange={(e) => handleEditorChange(e)}

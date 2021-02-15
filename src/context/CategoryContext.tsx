@@ -2,7 +2,7 @@ import React, { createContext } from 'react';
 import { vList } from './NoteContext';
 
 const CategoryContext = createContext({
-    vCollection: [] as vList[],
+    vCollection: [] as string[],
 });
 
 export const { Provider, Consumer } = CategoryContext;

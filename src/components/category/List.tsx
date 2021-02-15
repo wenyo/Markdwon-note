@@ -33,7 +33,7 @@ const List = (props: ListInput) => {
                             className={parseInt(id) === iActive ? 'active' : ''}
                         >
                             {Icon}
-                            <span>{vData[parseInt(id)].name}{id}</span>
+                            <span>{vData[parseInt(id)].name}</span>
                         </li>
                     ))}
             </ul>

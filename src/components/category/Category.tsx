@@ -25,9 +25,19 @@ export interface ListInput {
 const Category = () => {
     // context
     const { setAlert, bModal } = useContext(BaseContext);
-    const { vData, iActive, sType, vCollection, setvCollection, vStarr, setvStarr, vTrash, setvTrash, setvCollectionData, vCollectionData } = useContext(
-        NoteContext
-    );
+    const {
+        vData,
+        iActive,
+        sType,
+        vCollection,
+        setvCollection,
+        vStarr,
+        setvStarr,
+        vTrash,
+        setvTrash,
+        setvCollectionData,
+        vCollectionData,
+    } = useContext(NoteContext);
 
     // state
     const [sNewCollection, setsNewCollection] = useState('');
@@ -40,9 +50,9 @@ const Category = () => {
         if (sNewCollection === '') return;
         let vNewCollectionData = JSON.parse(JSON.stringify(vCollectionData));
         vNewCollectionData.push({ name: sNewCollection });
-        vCollection.push(vCollection.length.toString())
+        vCollection.push(vCollection.length.toString());
         setvCollectionData(vNewCollectionData);
-        setvCollection(vCollection)
+        setvCollection(vCollection);
         setAlert('Modal', false);
     };
 
@@ -86,7 +96,7 @@ const Category = () => {
         }
         setvTrash(vNewTrash);
         setvStarr(vNewStarr);
-    }, []);
+    }, [vData]);
 
     useEffect(() => {
         if (bModal) {

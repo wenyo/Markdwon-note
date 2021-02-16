@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { Provider, sActiveType, vList, vCollectionData as vCollectionDataContext } from './context/NoteContext';
+import React, { useState, useEffect } from 'react';
+import { Provider, sActiveType, vCollectionData as vCollectionDataContext } from './context/NoteContext';
 import { Provider as BaseProvider } from './context/BaseContext';
 import { vData as vDataDefault } from './json/Data';
 import Category from './components/category/Category';
 import Directory from './components/directory/Directory';
 import Note from './components/note/Note';
-import Shortcut from './components/shortcut/Shortcut';
 import Msg from './components/modal/Msg';
 import Modal from './components/modal/Modal';
 
@@ -21,10 +20,10 @@ function App() {
     const [iMsgType, setiMsgType] = useState(1);
 
     //state
-    const [iData, setiData] = useState(0); // note idx
+    const [iData, setiData] = useState(-1); // note idx
     const [vData, setvData] = useState(vDataDefault);
-    const [iActive, setiActive] = useState<number>(1); // category idx
-    const [sType, setsType] = useState<string>(sActiveType[0]); // category type
+    const [iActive, setiActive] = useState<number>(2); // category idx
+    const [sType, setsType] = useState<string>(sActiveType[1]); // category type
     const [vCollectionData, setvCollectionData] = useState(vCollectionDataContext);
     const [vCollection, setvCollection] = useState<string[]>(Object.keys(vCollectionData));
     const [vStarr, setvStarr] = useState<string[]>([]);
@@ -87,6 +86,36 @@ function App() {
         vCollectionData,
         setvCollectionData,
     };
+
+    useEffect(() => {
+        const sSaveData = localStorage.getItem('note');
+        const sCollectionData = localStorage.getItem('collection');
+        if (sSaveData) {
+            const vSaveData = JSON.parse(sSaveData);
+            setvData(vSaveData);
+            setiData(0);
+        }
+        if (sCollectionData) {
+            const vCollectionData = JSON.parse(sCollectionData);
+            setvCollectionData(vCollectionData);
+        }
+        setvCollection(Object.keys(vCollectionData));
+    }, []);
+
+    useEffect(() => {
+        if (iData > -1) {
+            const sNote = JSON.stringify(vData);
+            localStorage.setItem('note', sNote);
+        }
+    }, [vData]);
+
+    useEffect(() => {
+        if (iData > -1) {
+            const sCollectionData = JSON.stringify(vCollectionData);
+            localStorage.setItem('collection', sCollectionData);
+            setvCollection(Object.keys(vCollectionData));
+        }
+    }, [vCollectionData]);
 
     return (
         <BaseProvider value={vBaseContext}>

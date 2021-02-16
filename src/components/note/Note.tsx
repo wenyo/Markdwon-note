@@ -1,15 +1,8 @@
-// import react, react-markdown-editor-lite, and a markdown parser you like
-import React, { useState, useContext, useEffect } from 'react';
-import * as ReactDOM from 'react-dom';
+import { useState, useContext, useEffect } from 'react';
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
-// import style manually
 import 'react-markdown-editor-lite/lib/index.css';
-
 import NoteContext from '../../context/NoteContext';
-
-// Register plugins if required
-// MdEditor.use(YOUR_PLUGINS_HERE);
 
 // Initialize a markdown parser
 const mdParser = new MarkdownIt({ breaks: true });
@@ -38,10 +31,10 @@ const Note = () => {
     }
 
     useEffect(() => {
-        if (iData > 0) {
-            setsValue(vData[iData].content);
-        } else {
+        if (iData < 0) {
             setsValue('## Choese Note or Create Note first');
+        } else {
+            setsValue(vData[iData].content);
         }
     }, [iData]);
 

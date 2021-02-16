@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Provider } from '../../context/CategoryContext';
-import { vCollectionData } from '../../context/NoteContext';
 import List from './List';
 import NoteContext, { sActiveType } from '../../context/NoteContext';
 import BaseContext from '../../context/BaseContext';
@@ -57,14 +56,16 @@ const Category = () => {
     };
 
     const textCollection = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setsNewCollection(event.target.value);
+        const sNewValue = event.currentTarget.value;
+        if (`'"`.indexOf(sNewValue[sNewValue.length - 1]) > -1) return;
+        setsNewCollection(sNewValue);
     };
 
     const renewAlert = () => {
         setAlert(
             'Modal',
             true,
-            <>
+            <div className="content_row">
                 <input
                     className="input-text"
                     type="text"
@@ -74,7 +75,7 @@ const Category = () => {
                 <button className="btn-outline" onClick={addCollection}>
                     SUBMIT
                 </button>
-            </>,
+            </div>,
             'New Collection'
         );
     };

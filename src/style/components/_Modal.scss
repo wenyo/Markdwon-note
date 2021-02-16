@@ -19,12 +19,28 @@
 
         .content {
             width: 100%;
+        }
+
+        .content_row,
+        .content_column {
+            width: 100%;
             display: inline-flex;
+        }
+
+        .content_row {
             flex-direction: row;
             align-items: center;
 
             .btn-outline {
                 margin-left: 10px;
+            }
+        }
+
+        .content_column {
+            flex-direction: column;
+
+            .btn-outline {
+                align-self: flex-end;
             }
         }
     }
@@ -75,6 +91,23 @@
 
         .content {
             padding: 20px;
+        }
+    }
+
+    label {
+        display: block;
+
+        input,
+        select {
+            display: block;
+            margin: 5px 0 20px 0;
+            width: 100%;
+            font-size: 15px;
+        }
+
+        span {
+            opacity: 0.7;
+            font-size: 14px;
         }
     }
 }

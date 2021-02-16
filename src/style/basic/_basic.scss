@@ -50,19 +50,33 @@ body {
     padding: 20px 24px;
 }
 
+// button
 button {
     background-color: unset;
     border: unset, unset inside;
     border-radius: 15px;
     cursor: pointer;
+    width: fit-content;
 }
 
 .btn-outline {
     padding: 5px 20px;
 }
 
+// input
 .input-text {
     border: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+// select
+select {
+    width: 120px;
+    border: unset;
+    background-color: unset;
 
     &:focus {
         outline: none;

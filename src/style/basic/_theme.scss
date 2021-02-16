@@ -11,20 +11,24 @@
         border-bottom: 1px solid $color-b-primary-700;
     }
 
+    select {
+        border-bottom: 1px solid $color-b-primary-700;
+    }
+
     #theme {
         div {
             background-color: $color-b-primary-800;
         }
     }
-    
+
     &.gray-back {
-        .modal-content, .msg-content {
+        .modal-content,
+        .msg-content {
             background-color: $color-primary-300;
         }
 
-        .title-block{
+        .title-block {
             background-color: $color-b-primary-700;
-
         }
 
         .content {
@@ -68,14 +72,6 @@
 
             i {
                 color: $color-b-hilight-300;
-            }
-        }
-    }
-
-    #Note{
-        .editor-container{
-            &>section{
-                // border-right: 1px solid $color-b-primary-400;
             }
         }
     }

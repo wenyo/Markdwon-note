@@ -36,7 +36,7 @@ const Items = () => {
 
         setvShowData(vNewData);
         setiData(iNewData);
-    }, [sType, iActive]);
+    }, [sType, iActive, vData]);
 
     return (
         <div id="Items" className="scrollbarCol">

@@ -14,6 +14,7 @@ const Items = () => {
 
     // state
     const [vShowData, setvShowData] = useState<number[]>([]);
+
     useEffect(() => {
         let vNewData: number[] = [];
         switch (sType) {
@@ -31,8 +32,7 @@ const Items = () => {
             default:
                 break;
         }
-
-        const iNewData = vNewData.length === 0 ? -1 : vNewData[0];
+        const iNewData = vNewData.length === 0 ? -1 : iData; // bug
 
         setvShowData(vNewData);
         setiData(iNewData);

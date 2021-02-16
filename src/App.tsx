@@ -28,6 +28,7 @@ function App() {
     const [vCollection, setvCollection] = useState<string[]>(Object.keys(vCollectionData));
     const [vStarr, setvStarr] = useState<string[]>([]);
     const [vTrash, setvTrash] = useState<string[]>([]);
+    const [bGetData, setbGetData] = useState<boolean>(false);
 
     const chooseItem = (sType: string, idx: number) => {
         setsType(sType);
@@ -93,7 +94,7 @@ function App() {
         if (sSaveData) {
             const vSaveData = JSON.parse(sSaveData);
             setvData(vSaveData);
-            setiData(0);
+            setbGetData(true);
         }
         if (sCollectionData) {
             const vCollectionData = JSON.parse(sCollectionData);
@@ -103,14 +104,14 @@ function App() {
     }, []);
 
     useEffect(() => {
-        if (iData > -1) {
+        if (bGetData) {
             const sNote = JSON.stringify(vData);
             localStorage.setItem('note', sNote);
         }
     }, [vData]);
 
     useEffect(() => {
-        if (iData > -1) {
+        if (bGetData) {
             const sCollectionData = JSON.stringify(vCollectionData);
             localStorage.setItem('collection', sCollectionData);
             setvCollection(Object.keys(vCollectionData));
